@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo</title>
+
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: coral;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .box {
+        background: rgb(0, 139, 139);
+        width: 50px;
+        height: 50px;
+        box-shadow: 4px 4px 4px 0px rgba(0, 0, 0);
+        transition: all 300ms;
+      }
+
+      .box:hover {
+        transform: scale(1.5);
+        background: rgb(139, 23, 0);
+      }
+      .box:active {
+        box-shadow: 4px 4px 4px 0px inset rgba(0, 0, 0);
+      }
+
+      input:focus {
+        color: brown;
+      }
+
+      /* .box:nth-child(1) { */
+      /* background-color: darkgoldenrod; */
+      /* } */
+
+      /* .box:not(.special) {
+            background-color: darkgoldenrod;
+        } */
+
+      .quote::before {
+        content: open-quote;
+      }
+      .quote::after {
+        content: close-quote;
+      }
+
+      .speak {
+        border-radius: 50%;
+        padding: 16px;
+        position: relative;
+        box-shadow: none;
+      }
+
+      .speak::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        z-index: -2;
+        box-shadow: 4px 4px 4px 0px rgba(0, 0, 0);
+      }
+      .speak::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: darkcyan;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        transform: rotate(20deg) translate(-5px, -7px) skew(45deg);
+        box-shadow: 4px 4px 4px 0px rgba(0, 0, 0);
+        transition: all 300ms;
+      }
+      .speak:hover::after {
+        background: rgb(139, 23, 0);
+      }
+
+      .line::first-line {
+        background-color: darkgoldenrod;
+      }
+
+      .letter {
+        width: 100px;
+      }
+      .letter::first-letter {
+        color: rgb(139, 23, 0);
+        font-size: 40px;
+      }
+
+      ::selection {
+        background-color: yellow;
+        color: brown;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg) scale(0.5);
+        }
+        50% {
+          transform: rotate(180deg) scale(1);
+        }
+        100% {
+          transform: rotate(360deg) scale(0.5);
+        }
+      }
+
+      @keyframes color {
+        0% {
+          background: darkcyan;
+        }
+        100% {
+          background: darkgoldenrod;
+        }
+      }
+
+      .box {
+        animation: rotate 2s infinite linear,
+          color 10s infinite linear alternate;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box quote">olá mundo</div>
+    <div class="box speak">olá mundo</div>
+    <div class="box line">olá mundo</div>
+    <div class="box letter">Olá mundo</div>
+  </body>
+</html>
